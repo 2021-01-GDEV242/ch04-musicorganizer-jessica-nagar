@@ -182,4 +182,26 @@ public class MusicOrganizer
         player.startPlaying(tracks.get(randNum).getFilename());
         System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
     }
+    
+    public void randomOrder()
+    {
+        ArrayList<Track> copyTracks = new ArrayList<Track>();
+        
+        for(Track track : tracks)
+        {
+            copyTracks.add(track);
+        }
+        
+        while(!copyTracks.isEmpty())
+        {
+            int randNum = randomTrack.nextInt(copyTracks.size());
+            Track track = copyTracks.get(randNum);
+            copyTracks.remove(randNum);
+            System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
+            player.startPlaying(tracks.get(randNum).getFilename());
+        }
+        System.out.println(" ");
+    }
+        
+        
 }
